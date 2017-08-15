@@ -8,6 +8,13 @@ use App\Team;
 class TeamsController extends Controller
 {
     //
+     public function __construct() 
+
+    {
+        $this->middleware('auth', ['except' => ['index', 'show'] ]);
+    }
+
+
     public function index()
     {
         $teams = Team::all();
@@ -19,7 +26,7 @@ class TeamsController extends Controller
     {
         $team = Team::find($id);
 
-        
+
 
         return view('teams.show', ['team' => $team]);
     }
