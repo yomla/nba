@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use App\User;
 class RegisterController extends Controller
 {
-    //
-
     public function __construct()
 	{
 		$this->middleware('guest');
@@ -27,7 +25,7 @@ class RegisterController extends Controller
 
     		'name' => 'required',
     		'email' => 'required|email|unique:users',
-    		'password' => 'required|min:6',
+    		'password' => 'required|confirmed',
     		'password_confirmation' => 'required'
 
 		]);
