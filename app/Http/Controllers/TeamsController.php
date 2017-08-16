@@ -30,4 +30,28 @@ class TeamsController extends Controller
 
         return view('teams.show', ['team' => $team]);
     }
+
+    public function create()
+
+    {
+        return view('teams/create');
+    }
+
+    public function store ()
+
+    {
+        $this->validate(request(), [
+
+            'name' => 'required',
+            'email' => 'required|email',
+            'adress' => 'required',
+            'city' => 'required',
+
+            ]);
+
+
+        Team::create(request()->all());
+
+        return redirect('/');
+    }
 }

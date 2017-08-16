@@ -20,15 +20,17 @@
         <hr>
 
         @foreach($team->comments as $comment)
+        
         <li>
-            <strong>{{ $comment->created_at->diffForHumans() }}<br>
-            {{ $comment->user->name }}   
+            <strong>{{ $comment->user->name }} {{ $comment->created_at->diffForHumans() }}<br>
+               
             </strong>
             {{ $comment->content }}
         </li>
+        <hr>
     @endforeach
 
-    <hr>
+    
 
         <h4>Comments</h4>
 

@@ -22,8 +22,8 @@
 
 <div class="blog-header">
     <div class="container">
-        <h1 class="blog-title">The Vivify Academy Blog</h1>
-        <p class="lead blog-description">An example blog template built with Bootstrap.</p>
+        <h1 class="blog-title">The Vivify Academy Blog - NBA</h1>
+        
     </div>
 </div>
 
