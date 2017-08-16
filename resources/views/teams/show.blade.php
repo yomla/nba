@@ -10,13 +10,12 @@
         <h2>Players</h2>
 
         @foreach($team->players as $player)
-
-            <ol>
-                <li style="list-style-type: none;"><a href="/players/{{ $player->id }}"> {{ $player->first_name }} {{ $player->last_name }}</a></li>
-
-            </ol>
-
+            
+                <li class="list-group-item" style="list-style-type: none;"><a href="/players/{{ $player->id }}"> {{ $player->first_name }} {{ $player->last_name }}</a></li><br>
+            
         @endforeach
+
+        <a href="/players/create" class="btn btn-primary">Add a new player</a>
         <hr>
 
         @foreach($team->comments as $comment)
