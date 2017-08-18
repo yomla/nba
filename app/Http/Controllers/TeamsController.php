@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Team;
+use App\News;
 
 class TeamsController extends Controller
 {
@@ -14,6 +15,13 @@ class TeamsController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show'] ]);
     }
 
+    public function getTeamNews (Team $team)
+
+    {
+        $news = $team->news()->paginate(10);
+
+        return view('news.index', compact('news'));
+    }
 
     public function index()
     {
@@ -54,4 +62,6 @@ class TeamsController extends Controller
 
         return redirect('/');
     }
+
+    
 }

@@ -5,6 +5,17 @@
     <h2 class="blog-post-title">{{ $new->title }}</h2>
     <p class="blog-post-meta">{{ $new->created_at->toFormattedDateString() }} by <a href="/users/{{ $new->user_id }}"> {{ $new->user->name }} </a></p>
 
+    @if (count($new->teams))
+         <ul>
+             @foreach ($new->teams as $team)
+                 <li>
+                     <a href="/news/teams/{{ $team->name }}">
+                         {{ $team->name }}
+                     </a>
+                 </li>
+             @endforeach
+         </ul>
+    @endif
     
 
     <p>{{ $new->content }}</p>
