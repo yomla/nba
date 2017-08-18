@@ -13,7 +13,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('layouts.master', function ($view) {
+
+            $teams = \App\Team::has('news')->get();
+
+            $view->with(compact('teams'));
+        });
     }
 
     /**

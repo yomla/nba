@@ -19,6 +19,9 @@
         <a href="/players/create" class="btn btn-primary">Add a new player</a>
         <hr>
 
+        <h4>Comments</h4>
+        <hr>
+
         @foreach($team->comments as $comment)
         
         <li>
@@ -30,17 +33,13 @@
         <hr>
     @endforeach
 
-    
-
-        <h4>Comments</h4>
-
+            
     <form method="POST" action="/teams/{{ $team->id }}/comment">
 
         {{ csrf_field() }}
 
         <div class="form-group">
-            <label for="content">Body</label>
-            <textarea class="form-control" id="content" name="content"></textarea>
+            <textarea class="form-control" id="content" name="content" placeholder="Write your comment here"></textarea>
         </div>
 
         <div class="form-group">
