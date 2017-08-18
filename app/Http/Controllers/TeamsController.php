@@ -15,10 +15,12 @@ class TeamsController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show'] ]);
     }
 
+    
+
     public function getTeamNews (Team $team)
 
     {
-        $news = $team->news()->paginate(10);
+        $news = $team->news()->with('teams')->latest()->paginate(10);
 
         return view('news.index', compact('news'));
     }

@@ -26,9 +26,13 @@ Route::get('/logout', 'LoginController@destroy');
 Route::post('/teams/{id}/comment', 'CommentsController@store');
 
 Route::get('/news', 'NewsController@index');
-Route::get('/news/{id}', 'NewsController@show');
+
 
 Route::get('/news/teams/{team}', 'TeamsController@getTeamNews');
+
+Route::get('/news/create', 'NewsController@create');
+Route::post('/news', 'NewsController@store');
+Route::get('/news/{newsId}', 'NewsController@show');
 
 
 

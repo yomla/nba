@@ -1,6 +1,16 @@
 @extends('layouts.master')
 
 @section('content')
+    
+    @if ($flash = session('message'))
+
+        <div class="alert alert-success" role="alert">
+        
+            {{ $flash }}
+        
+        </div>
+
+    @endif
 
     <h1>News</h1><br>
 
