@@ -1,25 +1,17 @@
-    @extends('layouts.master')
+@extends('layouts.master')
 
-    @section('content')
+@section('content')
 
-        
-        <h2 class="blog-post-title">{{ $team->name }}</h2>
-        Email:<p class="blog-post-meta">{{ $team->email }} </p>
-        Adress:<p class="blog-post-meta">{{ $team->adress }} </p>
-        City:<p class="blog-post-meta">{{ $team->city }} </p>
+    <h2 class="blog-post-title">{{ $new->title }}</h2>
+    <p class="blog-post-meta">{{ $new->created_at->toFormattedDateString() }} by <a href="/users/{{ $new->user_id }}"> {{ $new->user->name }} </a></p>
 
-        <h2>Players</h2>
+    
 
-        @foreach($team->players as $player)
-            
-                <li class="list-group-item" style="list-style-type: none;"><a href="/players/{{ $player->id }}"> {{ $player->first_name }} {{ $player->last_name }}</a></li><br>
-            
-        @endforeach
+    <p>{{ $new->content }}</p>
 
-        <a href="/players/create" class="btn btn-primary">Add a new player</a>
-        <hr>
+    <hr>
 
-        @foreach($team->comments as $comment)
+       {{--  @foreach($new->comments as $comment)
         
         <li>
             <strong>{{ $comment->user->name }} {{ $comment->created_at->diffForHumans() }}<br>
@@ -34,7 +26,7 @@
 
         <h4>Comments</h4>
 
-    <form method="POST" action="/teams/{{ $team->id }}/comment">
+    <form method="POST" action="/news/{{ $team->id }}/comment">
 
         {{ csrf_field() }}
 
@@ -60,7 +52,6 @@
             </div>
         @endforeach
 
-    @endif
-        
+    @endif --}}
 
-    @endsection
+@endsection
