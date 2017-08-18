@@ -2,6 +2,13 @@
 
     @section('content')
 
+        @if(Session::has('success'))
+
+            <div class="alert alert-success">
+                <strong> {{ Session::get('success') }} </strong>
+            </div>
+        @endif
+
         <h2 class="blog-post-title">{{ $team->name }}</h2>
         Email:<p class="blog-post-meta">{{ $team->email }} </p>
         Adress:<p class="blog-post-meta">{{ $team->adress }} </p>

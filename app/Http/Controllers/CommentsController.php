@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Team;
+use App\Mail\CommentReceived;
 
 class CommentsController extends Controller
 {
@@ -17,7 +18,11 @@ class CommentsController extends Controller
 
         $team->addComment(request('content'));
 
+        \Mail::to($team->email)->send(new CommentReceived($team));
+
 
         return back();
     }
+
+
 }

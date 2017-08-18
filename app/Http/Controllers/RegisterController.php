@@ -25,7 +25,7 @@ class RegisterController extends Controller
 
     		'name' => 'required',
     		'email' => 'required|email|unique:users',
-    		'password' => 'required|confirmed',
+    		'password' => 'required|confirmed|min:6',
     		'password_confirmation' => 'required'
 
 		]);
@@ -40,7 +40,7 @@ class RegisterController extends Controller
 
     	auth()->login($user);
 
-    	return redirect('/');
+    	return redirect('/')->with(['success' => 'Hello ' . auth()->user()->name . 'you have registered successfully']);  
     }
 }
 

@@ -17,7 +17,7 @@ class TeamsController extends Controller
 
     public function index()
     {
-        $teams = Team::all();
+        $teams = Team::all()->sortBy('name');
 
         return view('teams.index', ['teams' => $teams]);
     }
